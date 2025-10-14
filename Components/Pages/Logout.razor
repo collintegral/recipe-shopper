@@ -1,0 +1,20 @@
+﻿@page "/logout"
+@inject Auth Auth
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Recipe Shopper</h1>
+
+@if (Auth.LoggedIn) {
+    <h3>Confirm logout, @Auth.Email.</h3>
+}
+<button class="btn btn-primary btn-login" @onclick="HandleLogout">Log Out</button>
+
+@code {
+    private void HandleLogout() {
+        Auth.LogOut();
+        Navigation.NavigateTo("/");
+    }
+}

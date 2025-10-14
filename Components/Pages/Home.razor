@@ -1,7 +1,13 @@
 ﻿@page "/"
+@inject Auth Auth
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Recipe Shopper</h1>
 
-Welcome to your new app.
+@if (Auth.LoggedIn) {
+    <h3>Welcome, @Auth.Email.</h3>
+}
+
+Discover, save, and shop your favorite recipes, all in one place.
+Recipe Shopper makes meal planning easy by storing your go-to dishes and instantly generating smart shopping lists from your selected recipes.

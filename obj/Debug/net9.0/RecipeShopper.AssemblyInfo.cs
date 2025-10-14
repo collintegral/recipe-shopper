@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecipeShopper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84a94a7037772f9f84f36bc893850e7a5538cc5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eebd40d0d3d3de606bacc98b60d40c0e075a9ff2")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecipeShopper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecipeShopper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Components.Server;
 using RecipeShopper.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddSingleton<Auth>();
+builder.Services.Configure<CircuitOptions>(options =>
+{
+    options.DetailedErrors = true;
+});
+
 
 var app = builder.Build();
 

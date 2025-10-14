@@ -1,0 +1,61 @@
+﻿@page "/login"
+@inject Auth Auth
+@inject IJSRuntime JS
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageTitle>Login</PageTitle>
+
+<div class="form-container">
+    <div class="form-section">
+        <h3>Log In/Sign Up</h3>
+        <div class="form-group">
+            <label>
+                Email
+                <input type="email" @bind="email" class="form-control" />
+            </label>
+            <label>
+                Password
+                <input type="password" @bind="password" class="form-control" />
+            </label>
+        </div>
+        <button class="btn btn-primary btn-login" @onclick="Submit">Log In/Sign Up</button>
+        <p class="text-danger">@message</p>
+    </div>
+</div>
+
+@code {
+    private string email = "";
+    private string password = "";
+    private string message = "To test login app, use \"admin@test.com\" and \"password\"";
+
+    private static Dictionary<string, string> users = new() {
+        ["admin@test.com"] = "password"
+    };
+
+    private async Task Submit() {
+        if (users.ContainsKey(email)) {
+            if (users[email] == password) {
+                message = "Login successful; redirecting...";
+                Auth.LogIn(email);
+                await Task.Delay(1000); 
+                Navigation.NavigateTo("/");
+            }
+            else {
+                message = "Invalid login. Please try again.";
+            }
+        }
+        else {
+            bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Register new account with email: {email} ?");
+            if (confirmed) {
+                message = "Sign-up Successful; logged in. Redirecting...";
+                users.Add(email, password);
+                Auth.LogIn(email);
+                await Task.Delay(1000); 
+                Navigation.NavigateTo("/");
+            } else {
+                message = "Registration cancelled. Please login.";
+            }
+        }
+    }
+}
