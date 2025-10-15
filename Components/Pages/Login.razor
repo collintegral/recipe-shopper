@@ -46,7 +46,7 @@
             }
         }
         else {
-            bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Register new account with email: {email} ?");
+            bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Register new account with email: {email}?");
             if (confirmed) {
                 message = "Sign-up Successful; logged in. Redirecting...";
                 users.Add(email, password);

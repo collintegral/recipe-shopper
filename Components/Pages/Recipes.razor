@@ -2,11 +2,15 @@
 @using RecipeShopper.Models
 @using Microsoft.AspNetCore.Components.Routing
 @using RecipeShopper.Services
+@using System.Threading.Tasks
+@rendermode InteractiveServer
 @inject RecipeService RecipeService
 
 <h1>Recipes</h1>
 
+@if (UserRecipes.Count > 0) {
 <div class="row">
+<h3>Select a recipe to see details, modify, or delete.</h3>
     @foreach (var recipe in UserRecipes)
     {
         <div class="col-md-4 mb-3">
@@ -15,16 +19,25 @@
                     <h5 class="card-title">@recipe.Name</h5>
                     <p class="card-text">@recipe.Summary</p>
                 </div>
-            </NavLink> 
+            </NavLink>
+            <button class="btn btn-primary" @onclick="() => AddToCart(recipe.Id)">@(recipe.InCart ? "Remove from Cart" : "Add to Cart")</button>
         </div>
     }
 </div>
+} else {
+    <h2>No recipes! Why not go add some?</h2>
+}
 
 @code {
     private List<Recipe> UserRecipes = new();
 
     protected override async Task OnInitializedAsync()
     {
+        UserRecipes = await RecipeService.GetRecipesAsync();
+    }
+
+    private async Task AddToCart(int id) {
+        await RecipeService.FlipRecipeCartAsync(id);
         UserRecipes = await RecipeService.GetRecipesAsync();
     }
 }

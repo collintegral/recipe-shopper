@@ -8,17 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddHttpClient<RecipeService>((serviceProvider, client) =>
-{
-    var accessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
-    var request = accessor.HttpContext?.Request;
-
-    if (request != null)
-    {
-        var baseUri = $"{request.Scheme}://{request.Host}/";
-        client.BaseAddress = new Uri(baseUri);
-    }
-});
+builder.Services.AddScoped<RecipeService>();
 builder.Services.AddSingleton<Auth>();
 builder.Services.Configure<CircuitOptions>(options =>
 {

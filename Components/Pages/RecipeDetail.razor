@@ -2,6 +2,9 @@
 @using RecipeShopper.Models
 @using Microsoft.AspNetCore.Components.Routing
 @using RecipeShopper.Services
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
 @inject RecipeService RecipeService
 
 @if (Recipe is null)
@@ -28,6 +31,11 @@ else
                     <p>Step @(i+1): @Recipe.Steps[i]</p>
                 }
             </div>
+            <div class="card">
+                <button class="btn btn-primary" @onclick="AddToCart">@(Recipe.InCart ? "Remove from Cart" : "Add to Cart")</button>
+                <button class="btn btn-primary" @onclick="ModifyRecipe">Modify Recipe</button>
+                <button class="btn btn-primary" @onclick="DeleteRecipe">Delete Recipe</button>
+            </div>
         </div>
     </div>
 }
@@ -40,5 +48,23 @@ else
     protected override async Task OnInitializedAsync()
     {
         Recipe = await RecipeService.GetRecipeAsync(id);
+    }
+
+    private async Task AddToCart() {
+        await RecipeService.FlipRecipeCartAsync(id);
+        Recipe = await RecipeService.GetRecipeAsync(id);
+    }
+
+    private async Task ModifyRecipe() {
+        Navigation.NavigateTo($"/recipes/{Recipe.Id}/modify");
+    }
+
+    private async Task DeleteRecipe() {
+        bool delete = await JS.InvokeAsync<bool>("confirm", $"Really delete your {Recipe.Name} recipe?");
+        if (delete) {
+            await RecipeService.DeleteRecipeAsync(Recipe.Id);
+            await JS.InvokeVoidAsync("alert", "Recipe deleted. Returning to list.");
+            Navigation.NavigateTo("/recipes");
+        }
     }
 }

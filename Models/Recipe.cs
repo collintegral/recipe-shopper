@@ -5,6 +5,7 @@ namespace RecipeShopper.Models
     public class Recipe(int id, string name, string summary, List<Ingredient> ingredients, int servings, List<string> steps)
     {
         public int Id { get; set; } = id;
+        public bool InCart { get; set; } = false;
         public string Name { get; set; } = name;
         public string Summary { get; set; } = summary;
         public List<Ingredient> Ingredients { get; set; } = ingredients;

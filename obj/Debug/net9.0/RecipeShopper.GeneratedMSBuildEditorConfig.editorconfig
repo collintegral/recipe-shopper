@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/colli/OneDrive/Desktop/Collin Stuff/Classwork/CS/CSE 325/RecipeShopper/Components/Pages/ModRecipe.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RSZWNpcGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/colli/OneDrive/Desktop/Collin Stuff/Classwork/CS/CSE 325/RecipeShopper/Components/Pages/NewRecipe.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOZXdSZWNpcGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/colli/OneDrive/Desktop/Collin Stuff/Classwork/CS/CSE 325/RecipeShopper/Components/Pages/RecipeDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

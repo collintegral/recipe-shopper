@@ -1,1 +1,33 @@
 @page "/cart"
+@using RecipeShopper.Models
+@using Microsoft.AspNetCore.Components.Routing
+@using RecipeShopper.Services
+@using System.Threading.Tasks
+@rendermode InteractiveServer
+@inject RecipeService RecipeService
+
+<h1>Ingredients Cart</h1>
+
+@if (UserRecipes.Count > 0) {
+<div class="row card">
+    <ul>
+        @foreach (var recipe in UserRecipes)
+        {
+            foreach (var ingredient in recipe.Ingredients) {
+                <li>@ingredient.Name - @ingredient.Quantity @ingredient.Unit</li>
+            }
+        }
+    </ul>
+</div>
+} else {
+    <h2>No recipes in cart! Why not go add some?</h2>
+}
+
+@code {
+    private List<Recipe> UserRecipes = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        UserRecipes = await RecipeService.GetRecipesInCartAsync();
+    }
+}

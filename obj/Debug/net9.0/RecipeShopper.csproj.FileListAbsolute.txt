@@ -21,7 +21,6 @@ c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\scopedcss\bundle\RecipeShopper.styles.css
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\scopedcss\projectbundle\RecipeShopper.bundle.scp.css
-c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\553r1ena7d-6wrdvnpvrl.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\rsa6kgogrd-bqjiyaj88i.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\ztc0z2apgz-c2jlpeoesf.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\ldix44dsvj-erw9l3u2r3.gz
@@ -66,7 +65,6 @@ c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\z4e2dtnqq1-h1s4sie4z3.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\68ko41yhmn-63fj8s7r0e.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\95d05z9264-0j3bgjxly4.gz
-c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\q85dx9y1nb-m955bvy35c.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\d9wxam1w2n-wl67dsida1.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\d2pl0h9wxo-wl67dsida1.gz
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\staticwebassets.build.json
@@ -78,3 +76,5 @@ c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\RecipeShopper.pdb
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\RecipeShopper.genruntimeconfig.cache
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\ref\RecipeShopper.dll
+c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\553r1ena7d-2o0uq3pfwx.gz
+c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\q85dx9y1nb-s83p8slqwv.gz

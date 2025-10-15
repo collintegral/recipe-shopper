@@ -1,0 +1,111 @@
+@page "/recipes/new"
+@using RecipeShopper.Models
+@using RecipeShopper.Services
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject RecipeService RecipeService
+
+@if (Recipe is null)
+{
+    <NavLink class="text-decoration-none text-dark" href="/recipes">Recipe not found. Click here to return to recipe browser.</NavLink>
+}
+else
+{
+    <h3 class="card-title">New Recipe</h3>
+    <EditForm Model="@Recipe" OnValidSubmit="SaveRecipe">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="card">
+            <div class="mb-3">
+                <label>Name</label>
+                <InputText class="form-control" @bind-Value="Recipe.Name" />
+            </div>
+
+            <div class="mb-3">
+                <label>Summary</label>
+                <InputTextArea class="form-control" @bind-Value="Recipe.Summary" />
+            </div>
+
+            <div class="mb-3">
+                <label>Servings</label>
+                <InputNumber class="form-control" @bind-Value="Recipe.Servings" />
+            </div>
+        </div>
+        
+        <div class="card">
+            <h5>Ingredients</h5>
+            @foreach (var (ingredient, index) in Recipe.Ingredients.Select((value, i) => (value, i)))
+            {
+                <div class="mb-2 d-flex gap-2 align-items-center">
+                    <InputText class="form-control" @bind-Value="ingredient.Name" placeholder="Name" />
+                    <InputNumber class="form-control" @bind-Value="ingredient.Quantity" placeholder="Qty" />
+                    <InputText class="form-control" @bind-Value="ingredient.Unit" placeholder="Unit" />
+                    <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveIngredient(index)">✕</button>
+                </div>
+            }
+            <button type="button" class="btn btn-outline-primary mb-3" @onclick="AddIngredient">+ Add Ingredient</button>
+        </div>
+        
+        <div class="card">
+            <h5>Steps</h5>
+            @foreach (var (step, index) in Recipe.Steps.Select((value, i) => (value, i)))
+            {
+                <div class="mb-2 d-flex gap-2 align-items-start">
+                    <InputTextArea class="form-control" @bind-Value="Recipe.Steps[index]" />
+                    <button type="button" class="btn btn-danger btn-sm" @onclick="() => RemoveStep(index)">✕</button>
+                 </div>
+            }
+            <button type="button" class="btn btn-outline-primary mb-3" @onclick="AddStep">+ Add Step</button>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Recipe</button>
+    </EditForm>
+}
+
+@code {
+    private Recipe? Recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        int recipeId = await RecipeService.GetRecipeCountAsync();
+        Recipe = new Recipe(
+            recipeId,
+            "",
+            "",
+            new List<Ingredient> { new Ingredient("", "", 0) },
+            0,
+            new List<string> { "" }
+        );
+    }
+
+    private void AddIngredient()
+    {
+        Recipe.Ingredients.Add(new Ingredient("", "", 0));
+    }
+
+    private void RemoveIngredient(int ing)
+    {
+        if (Recipe.Ingredients.Count > 1) Recipe.Ingredients.RemoveAt(ing);
+    }
+
+    private void AddStep()
+    {
+        Recipe.Steps.Add("");
+    }
+
+    private void RemoveStep(int step)
+    {
+        if (Recipe.Steps.Count > 1) Recipe.Steps.RemoveAt(step);
+    }
+
+    private async Task SaveRecipe() {
+        bool saveBool = await JS.InvokeAsync<bool>("confirm", $"Save your new {Recipe.Name} recipe?");
+        if (saveBool) {
+            await RecipeService.NewRecipeAsync(Recipe);
+            await JS.InvokeVoidAsync("alert", "Recipe saved. Navigating to it now.");
+            Navigation.NavigateTo($"/recipes/{Recipe.Id}");
+        }
+    }
+}
