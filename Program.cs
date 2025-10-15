@@ -1,11 +1,24 @@
 using Microsoft.AspNetCore.Components.Server;
 using RecipeShopper.Components;
+using RecipeShopper.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient<RecipeService>((serviceProvider, client) =>
+{
+    var accessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+    var request = accessor.HttpContext?.Request;
+
+    if (request != null)
+    {
+        var baseUri = $"{request.Scheme}://{request.Host}/";
+        client.BaseAddress = new Uri(baseUri);
+    }
+});
 builder.Services.AddSingleton<Auth>();
 builder.Services.Configure<CircuitOptions>(options =>
 {

@@ -1,0 +1,30 @@
+@page "/recipes"
+@using RecipeShopper.Models
+@using Microsoft.AspNetCore.Components.Routing
+@using RecipeShopper.Services
+@inject RecipeService RecipeService
+
+<h1>Recipes</h1>
+
+<div class="row">
+    @foreach (var recipe in UserRecipes)
+    {
+        <div class="col-md-4 mb-3">
+            <NavLink class="text-decoration-none text-dark" href="@($"/recipes/{recipe.Id}")">
+                <div class="card">
+                    <h5 class="card-title">@recipe.Name</h5>
+                    <p class="card-text">@recipe.Summary</p>
+                </div>
+            </NavLink> 
+        </div>
+    }
+</div>
+
+@code {
+    private List<Recipe> UserRecipes = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        UserRecipes = await RecipeService.GetRecipesAsync();
+    }
+}

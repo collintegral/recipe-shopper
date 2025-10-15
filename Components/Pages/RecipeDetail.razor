@@ -1,0 +1,44 @@
+@page "/recipes/{id:int}"
+@using RecipeShopper.Models
+@using Microsoft.AspNetCore.Components.Routing
+@using RecipeShopper.Services
+@inject RecipeService RecipeService
+
+@if (Recipe is null)
+{
+    <NavLink class="text-decoration-none text-dark" href="/recipes">Recipe not found. Click here to return to recipe browser.</NavLink>
+}
+else
+{
+    <h3 class="card-title">@Recipe.Name</h3>
+    <p class="card-text">@Recipe.Summary</p>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                @foreach(var ingredient in Recipe.Ingredients)
+                {
+                    <p>- @ingredient.Name: @ingredient.Quantity @ingredient.Unit</p>
+                }
+                <p>Serves @Recipe.Servings</p>
+            </div>
+            <div class="card">
+                @for(int i = 0; i < Recipe.Steps.Count; i++)
+                {
+                    <p>Step @(i+1): @Recipe.Steps[i]</p>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+    private Recipe? Recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Recipe = await RecipeService.GetRecipeAsync(id);
+    }
+}
