@@ -4,7 +4,7 @@
 @inject NavigationManager Navigation
 @rendermode InteractiveServer
 
-<PageTitle>Login</PageTitle>
+<h1>Login</h1>
 
 <div class="form-container">
     <div class="form-section">
@@ -29,31 +29,27 @@
     private string password = "";
     private string message = "To test login app, use \"admin@test.com\" and \"password\"";
 
-    private static Dictionary<string, string> users = new() {
-        ["admin@test.com"] = "password"
-    };
-
     private async Task Submit() {
-        if (users.ContainsKey(email)) {
-            if (users[email] == password) {
-                message = "Login successful; redirecting...";
-                Auth.LogIn(email);
-                await Task.Delay(1000); 
-                Navigation.NavigateTo("/");
-            }
-            else {
-                message = "Invalid login. Please try again.";
-            }
-        }
-        else {
+        int result = await Auth.CheckLogin(email, password);
+        if (result == 0) {
+            Auth.LogIn(email);
+            message = "Login successful; redirecting...";
+            await Task.Delay(1000);
+            Navigation.NavigateTo("/");
+        } else if (result == 1) {
+            message = "Invalid login. Please try again.";
+        } else if (result == 2) {
             bool confirmed = await JS.InvokeAsync<bool>("confirm", $"Register new account with email: {email}?");
-            if (confirmed) {
+            if (confirmed)
+            {
+                await Auth.AddUserAsync(email, password);
                 message = "Sign-up Successful; logged in. Redirecting...";
-                users.Add(email, password);
                 Auth.LogIn(email);
-                await Task.Delay(1000); 
+                await Task.Delay(1000);
                 Navigation.NavigateTo("/");
-            } else {
+            }
+            else
+            {
                 message = "Registration cancelled. Please login.";
             }
         }

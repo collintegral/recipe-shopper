@@ -2,7 +2,6 @@ using System.Text.Json;
 using RecipeShopper.Components.Pages;
 using RecipeShopper.Models;
 
-
 namespace RecipeShopper.Services
 {
     public class RecipeService
