@@ -43,7 +43,12 @@ else
 @code {
     [Parameter]
     public int id {get; set;}
-    private Recipe? Recipe = await RecipeService.GetRecipeAsync(id);
+    private Recipe? Recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Recipe = await RecipeService.GetRecipeAsync(id);
+    }
 
     private async Task AddToCart() {
         await RecipeService.FlipRecipeCartAsync(id);
