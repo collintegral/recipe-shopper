@@ -1,19 +1,13 @@
-# Use a minimal base image
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+COPY . .
+RUN dotnet publish -c Release -r linux-x64 --self-contained true -o /app/publish
+
+# Runtime stage
 FROM debian:bullseye-slim
-
-# Set environment variables
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true \
-    ASPNETCORE_URLS=http://+:80 \
-    ASPNETCORE_ENVIRONMENT=Production
-
-# Create app directory
 WORKDIR /app
-
-# Copy published files
-COPY ./publish .
-
-# Expose port 80
+COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
-
-# Run the app
 ENTRYPOINT ["./RecipeShopper"]
