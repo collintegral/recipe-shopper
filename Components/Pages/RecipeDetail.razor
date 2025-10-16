@@ -55,7 +55,7 @@ else
         Recipe = await RecipeService.GetRecipeAsync(id);
     }
 
-    private async Task ModifyRecipe() {
+    private void ModifyRecipe() {
         Navigation.NavigateTo($"/recipes/{Recipe.Id}/modify");
     }
 

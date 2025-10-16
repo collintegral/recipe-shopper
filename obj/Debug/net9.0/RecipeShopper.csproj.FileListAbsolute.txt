@@ -77,4 +77,6 @@ c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\RecipeShopper.genruntimeconfig.cache
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\ref\RecipeShopper.dll
 c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\553r1ena7d-2o0uq3pfwx.gz
-c:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\q85dx9y1nb-s83p8slqwv.gz
+C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\compressed\q85dx9y1nb-b2dojmhdae.gz
+C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\RecipeShopper.RazorAssemblyInfo.cache
+C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\obj\Debug\net9.0\RecipeShopper.RazorAssemblyInfo.cs
