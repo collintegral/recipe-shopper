@@ -29,12 +29,7 @@
 }
 
 @code {
-    private List<Recipe> UserRecipes = new();
-
-    protected override async Task OnInitializedAsync()
-    {
-        UserRecipes = await RecipeService.GetRecipesAsync();
-    }
+    private List<Recipe>? UserRecipes = await RecipeService.GetRecipesAsync();
 
     private async Task AddToCart(int id) {
         await RecipeService.FlipRecipeCartAsync(id);
