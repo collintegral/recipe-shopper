@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet publish -c Release -r linux-x64 --self-contained true -o /app/publish
+RUN dotnet publish "RecipeShopper.csproj" -c Release -r linux-x64 --self-contained true -o /app/publish
 
 # Runtime stage
 FROM debian:bullseye-slim
