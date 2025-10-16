@@ -1,7 +1,0 @@
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\RecipeShopper.exe
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\appsettings.Development.json
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\appsettings.json
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\RecipeShopper.dll
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\RecipeShopper.deps.json
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\RecipeShopper.runtimeconfig.json
-C:\Users\colli\OneDrive\Desktop\Collin Stuff\Classwork\CS\CSE 325\RecipeShopper\publish\RecipeShopper.pdb
