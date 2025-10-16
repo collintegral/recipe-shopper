@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UUeJl/1ryaY=",
+  "dgSpecHash": "kK47uz7SvEY=",
   "success": true,
   "projectFilePath": "C:\\Users\\colli\\OneDrive\\Desktop\\Collin Stuff\\Classwork\\CS\\CSE 325\\RecipeShopper\\RecipeShopper.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\colli\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.8\\microsoft.netcore.app.runtime.win-x64.9.0.8.nupkg.sha512",
+    "C:\\Users\\colli\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.8.nupkg.sha512",
+    "C:\\Users\\colli\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.8\\microsoft.aspnetcore.app.runtime.win-x64.9.0.8.nupkg.sha512"
+  ],
   "logs": []
 }
