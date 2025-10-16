@@ -103,6 +103,12 @@ namespace RecipeShopper.Services
             if (id >= 0 && id < recipes.Count)
             {
                 recipes.RemoveAt(id);
+
+                for (var i = 0; i < recipes.Count; i++)
+                {
+                    recipes[i].Id = i;
+                }
+                
                 var updatedRecipes = JsonSerializer.Serialize(recipes, options);
                 await File.WriteAllTextAsync(path, updatedRecipes);
             }
