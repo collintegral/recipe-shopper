@@ -27,7 +27,7 @@
 @code {
     private string email = "";
     private string password = "";
-    private string message = "To test login app, use \"admin@test.com\" and \"password\"";
+    private string message = "";
 
     private async Task Submit() {
         int result = await Auth.CheckLogin(email, password);
